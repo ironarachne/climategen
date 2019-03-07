@@ -7,7 +7,7 @@ var (
 		"desert",
 		"grassland",
 		"marshland",
-		"monsoon",
+		"tropical",
 		"mountain",
 		"rainforest",
 		"savanna",
