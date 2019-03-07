@@ -17,4 +17,8 @@ func main() {
 	for _, resource := range climate.Resources {
 		fmt.Println("Resource: " + resource)
 	}
+
+	for _, need := range climate.Needs {
+		fmt.Println("Need: " + need)
+	}
 }
