@@ -5,10 +5,10 @@ var (
 		"coniferous",
 		"deciduous",
 		"desert",
-		"grasslands",
+		"grassland",
 		"marshland",
 		"monsoon",
-		"mountains",
+		"mountain",
 		"rainforest",
 		"savanna",
 		"steppe",
@@ -17,7 +17,7 @@ var (
 	}
 
 	climateData = map[string]Climate{
-		"conferious": Climate{
+		"coniferous": Climate{
 			Name:        "coniferous forest",
 			Temperature: 4,
 			Humidity:    6,
