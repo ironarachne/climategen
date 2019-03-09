@@ -13,15 +13,22 @@ require (
 	github.com/iris-contrib/go.uuid v2.0.0+incompatible // indirect
 	github.com/ironarachne/utility v0.0.0-20181021125830-32a6c250e33b
 	github.com/json-iterator/go v1.1.5 // indirect
+	github.com/juju/errors v0.0.0-20190207033735-e65537c515d7 // indirect
+	github.com/juju/loggo v0.0.0-20190212223446-d976af380377 // indirect
 	github.com/kataras/golog v0.0.0-20180321173939-03be10146386 // indirect
 	github.com/kataras/iris v11.1.1+incompatible
 	github.com/kataras/pio v0.0.0-20190103105442-ea782b38602d // indirect
 	github.com/klauspost/compress v1.4.1 // indirect
 	github.com/klauspost/cpuid v1.2.0 // indirect
+	github.com/kr/pty v1.1.3 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.2 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/ryanuber/columnize v2.1.0+incompatible // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
-	golang.org/x/crypto v0.0.0-20190228161510-8dd112bcdc25 // indirect
+	golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2 // indirect
+	golang.org/x/net v0.0.0-20190301231341-16b79f2e4e95 // indirect
+	golang.org/x/sys v0.0.0-20190309122539-980fc434d28e // indirect
+	golang.org/x/tools v0.0.0-20190308174544-00c44ba9c14f // indirect
+	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )
