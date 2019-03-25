@@ -1,6 +1,7 @@
 package climategen
 
 import (
+	"github.com/ironarachne/random"
 	"github.com/ironarachne/utility"
 )
 
@@ -15,7 +16,7 @@ type Climate struct {
 
 // Generate generates a climate
 func Generate() Climate {
-	climateOption := utility.RandomItem(climates)
+	climateOption := random.Item(climates)
 
 	climate := climateData[climateOption]
 	climate.Needs = getListOfNeeds(climate)
