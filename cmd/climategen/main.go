@@ -15,10 +15,10 @@ func main() {
 	fmt.Println(climate.Name)
 
 	for _, resource := range climate.Resources {
-		fmt.Println("Resource: " + resource)
+		fmt.Println("Resource: " + resource.Name)
 	}
 
 	for _, need := range climate.Needs {
-		fmt.Println("Need: " + need)
+		fmt.Println("Need: " + need.Name)
 	}
 }

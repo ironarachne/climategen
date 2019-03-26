@@ -2,7 +2,6 @@ package climategen
 
 import (
 	"github.com/ironarachne/random"
-	"github.com/ironarachne/utility"
 )
 
 // Climate is a climate
@@ -10,8 +9,14 @@ type Climate struct {
 	Name        string
 	Temperature int
 	Humidity    int
-	Resources   []string
-	Needs       []string
+	Resources   []Resource
+	Needs       []Resource
+}
+
+// Resource is a resource
+type Resource struct {
+	Name  string
+	Types []string
 }
 
 // Generate generates a climate
@@ -32,9 +37,9 @@ func GetClimate(name string) Climate {
 	return climate
 }
 
-func getListOfNeeds(climate Climate) []string {
+func getListOfNeeds(climate Climate) []Resource {
 	resourcesOwned := climate.Resources
-	resourcesNeeded := []string{}
+	resourcesNeeded := []Resource{}
 
 	climateToCheck := Climate{}
 
@@ -42,8 +47,8 @@ func getListOfNeeds(climate Climate) []string {
 		climateToCheck = climateData[otherClimate]
 
 		for _, resource := range climateToCheck.Resources {
-			if !utility.ItemInCollection(resource, resourcesOwned) {
-				if !utility.ItemInCollection(resource, resourcesNeeded) {
+			if !isResourceInSlice(resource, resourcesOwned) {
+				if !isResourceInSlice(resource, resourcesNeeded) {
 					resourcesNeeded = append(resourcesNeeded, resource)
 				}
 			}
