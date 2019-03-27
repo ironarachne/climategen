@@ -23,3 +23,18 @@ func IsTypeInResources(resourceType string, resources []Resource) bool {
 
 	return false
 }
+
+// ListResourcesOfType returns a slice of resources that match the type given
+func ListResourcesOfType(resourceType string, resources []Resource) []Resource {
+	var found []Resource
+
+	for _, r := range resources {
+		for _, t := range r.Types {
+			if t == resourceType {
+				found = append(found, r)
+			}
+		}
+	}
+
+	return found
+}
