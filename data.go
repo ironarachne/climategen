@@ -90,6 +90,10 @@ var (
 					"kohlrabi",
 					[]string{"vegetable", "plant", "food"},
 				},
+				Resource{
+					"rye",
+					[]string{"grain", "plant", "food"},
+				},
 			},
 		},
 		"deciduous": Climate{
@@ -152,6 +156,10 @@ var (
 				Resource{
 					"cauliflower",
 					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"rye",
+					[]string{"grain", "plant", "food"},
 				},
 			},
 		},
@@ -270,6 +278,18 @@ var (
 				Resource{
 					"tomato",
 					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"wheat",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"rye",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"barley",
+					[]string{"grain", "plant", "food"},
 				},
 			},
 		},
@@ -421,6 +441,14 @@ var (
 					"leek",
 					[]string{"vegetable", "plant", "food"},
 				},
+				Resource{
+					"millet",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"rice",
+					[]string{"grain", "plant", "food"},
+				},
 			},
 		},
 		"mountain": Climate{
@@ -519,6 +547,18 @@ var (
 				Resource{
 					"llama",
 					[]string{"hide", "meat", "food", "wool"},
+				},
+				Resource{
+					"corn",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"oats",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"rye",
+					[]string{"grain", "plant", "food"},
 				},
 			},
 		},
@@ -635,6 +675,10 @@ var (
 					"monitor lizard",
 					[]string{"hide", "meat", "food"},
 				},
+				Resource{
+					"rice",
+					[]string{"grain", "plant", "food"},
+				},
 			},
 		},
 		"savanna": Climate{
@@ -706,6 +750,14 @@ var (
 					"yam",
 					[]string{"vegetable", "plant", "food"},
 				},
+				Resource{
+					"millet",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"barley",
+					[]string{"grain", "plant", "food"},
+				},
 			},
 		},
 		"steppe": Climate{
@@ -764,6 +816,14 @@ var (
 				Resource{
 					"onion",
 					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"barley",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"oats",
+					[]string{"grain", "plant", "food"},
 				},
 			},
 		},
@@ -852,6 +912,18 @@ var (
 					"cabbage",
 					[]string{"vegetable", "plant", "food"},
 				},
+				Resource{
+					"wheat",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"barley",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"oats",
+					[]string{"grain", "plant", "food"},
+				},
 			},
 		},
 		"tundra": Climate{
@@ -922,6 +994,14 @@ var (
 				Resource{
 					"yam",
 					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"rye",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"barley",
+					[]string{"grain", "plant", "food"},
 				},
 			},
 		},
