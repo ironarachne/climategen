@@ -32,11 +32,11 @@ var (
 				},
 				Resource{
 					"berries",
-					[]string{"fruit", "dye", "food", "plant"},
+					[]string{"fruit", "dye", "food", "plant", "poison"},
 				},
 				Resource{
 					"chamois",
-					[]string{"textile"},
+					[]string{"hide", "meat", "food"},
 				},
 				Resource{
 					"geese",
