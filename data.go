@@ -31,20 +31,64 @@ var (
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
-					"berries",
-					[]string{"fruit", "dye", "food", "plant", "poison"},
+					"blackberries",
+					[]string{"fruit", "dye", "food", "plant"},
+				},
+				Resource{
+					"blueberries",
+					[]string{"fruit", "dye", "food", "plant"},
+				},
+				Resource{
+					"raspberries",
+					[]string{"fruit", "dye", "food", "plant"},
 				},
 				Resource{
 					"chamois",
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
-					"geese",
+					"goose",
 					[]string{"feathers", "meat", "food"},
 				},
 				Resource{
 					"softwood",
 					[]string{"wood"},
+				},
+				Resource{
+					"brahmi",
+					[]string{"herb", "medicine", "plant"},
+				},
+				Resource{
+					"nutmeg",
+					[]string{"spice", "plant"},
+				},
+				Resource{
+					"parsley",
+					[]string{"spice", "herb", "plant"},
+				},
+				Resource{
+					"potato",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"onion",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"carrot",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"eggplant",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"cabbage",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"kohlrabi",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -75,15 +119,39 @@ var (
 				},
 				Resource{
 					"mushrooms",
-					[]string{"plant", "food"},
+					[]string{"vegetable", "plant", "food"},
 				},
 				Resource{
 					"squirrel",
 					[]string{"meat", "food"},
 				},
 				Resource{
-					"wolves",
+					"wolf",
 					[]string{"hide"},
+				},
+				Resource{
+					"basil",
+					[]string{"spice", "herb", "plant"},
+				},
+				Resource{
+					"cilantro",
+					[]string{"spice", "herb", "plant"},
+				},
+				Resource{
+					"potato",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"fiddlehead",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"broccoli",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"cauliflower",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -93,7 +161,7 @@ var (
 			Humidity:    0,
 			Resources: []Resource{
 				Resource{
-					"camels",
+					"camel",
 					[]string{"pack animal", "mount", "meat", "food"},
 				},
 				Resource{
@@ -121,7 +189,7 @@ var (
 					[]string{"spice"},
 				},
 				Resource{
-					"scorpions",
+					"scorpion",
 					[]string{"meat", "food", "poison"},
 				},
 				Resource{
@@ -131,6 +199,14 @@ var (
 				Resource{
 					"turquoise",
 					[]string{"gemstone"},
+				},
+				Resource{
+					"saffron",
+					[]string{"spice", "plant"},
+				},
+				Resource{
+					"yam",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -148,11 +224,11 @@ var (
 					[]string{"hide"},
 				},
 				Resource{
-					"chickens",
+					"chicken",
 					[]string{"feathers", "eggs", "meat", "food"},
 				},
 				Resource{
-					"coyotes",
+					"coyote",
 					[]string{"hide"},
 				},
 				Resource{
@@ -160,12 +236,40 @@ var (
 					[]string{"flowers", "plant"},
 				},
 				Resource{
-					"horses",
+					"horse",
 					[]string{"mount", "meat", "food"},
 				},
 				Resource{
-					"cattle",
+					"cow",
 					[]string{"hide", "meat", "milk", "food"},
+				},
+				Resource{
+					"parsley",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"rosemary",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"thyme",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"black pepper",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"potato",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"onion",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"tomato",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -179,15 +283,15 @@ var (
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
-					"ducks",
+					"duck",
 					[]string{"feathers", "eggs", "meat", "food"},
 				},
 				Resource{
-					"flamingos",
+					"flamingo",
 					[]string{"feathers", "meat", "food"},
 				},
 				Resource{
-					"snakes",
+					"snake",
 					[]string{"hide", "meat", "food", "poison"},
 				},
 				Resource{
@@ -195,12 +299,36 @@ var (
 					[]string{"herbs", "plant", "medicine"},
 				},
 				Resource{
-					"reeds",
+					"reed",
 					[]string{"plant", "basket"},
 				},
 				Resource{
-					"vines",
+					"vine",
 					[]string{"plant", "basket"},
+				},
+				Resource{
+					"oregano",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"mint",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"cabbage",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"rice",
+					[]string{"grain", "plant", "food"},
+				},
+				Resource{
+					"water chestnuts",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"bamboo shoots",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -210,15 +338,15 @@ var (
 			Humidity:    7,
 			Resources: []Resource{
 				Resource{
-					"avocados",
+					"avocado",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
-					"bananas",
+					"banana",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
-					"coconuts",
+					"coconut",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
@@ -226,7 +354,7 @@ var (
 					[]string{"drink", "plant", "food"},
 				},
 				Resource{
-					"elephants",
+					"elephant",
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
@@ -234,23 +362,63 @@ var (
 					[]string{"ivory", "decoration"},
 				},
 				Resource{
-					"jaguars",
+					"jaguar",
 					[]string{"hide"},
 				},
 				Resource{
-					"mangos",
+					"mango",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
-					"pineapples",
+					"pineapple",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
-					"tigers",
+					"tiger",
 					[]string{"hide"},
 				},
 				Resource{
-					"yams",
+					"yam",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"lemongrass",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"cinnamon",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"coriander",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"cloves",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"basil",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"chili pepper",
+					[]string{"spice", "plant"},
+				},
+				Resource{
+					"bell pepper",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"lettuce",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"bok choy",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"leek",
 					[]string{"vegetable", "plant", "food"},
 				},
 			},
@@ -269,7 +437,7 @@ var (
 					[]string{"metal", "precious metal"},
 				},
 				Resource{
-					"diamonds",
+					"diamond",
 					[]string{"gemstone"},
 				},
 				Resource{
@@ -300,6 +468,42 @@ var (
 					"silver",
 					[]string{"metal", "precious metal"},
 				},
+				Resource{
+					"rosemary",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"thyme",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"sage",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"parsley",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"onion",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"brussel sprouts",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"green beans",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"pinto beans",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"black beans",
+					[]string{"vegetable", "plant", "food"},
+				},
 			},
 		},
 		"rainforest": Climate{
@@ -308,15 +512,15 @@ var (
 			Humidity:    9,
 			Resources: []Resource{
 				Resource{
-					"avocados",
+					"avocado",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
-					"bananas",
+					"banana",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
-					"coconuts",
+					"coconut",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
@@ -336,7 +540,7 @@ var (
 					[]string{"plant", "food", "medicine", "poison"},
 				},
 				Resource{
-					"pineapples",
+					"pineapple",
 					[]string{"fruit", "plant", "food"},
 				},
 				Resource{
@@ -344,7 +548,59 @@ var (
 					[]string{"wood"},
 				},
 				Resource{
-					"yams",
+					"yam",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"lemongrass",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"cinnamon",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"turmeric",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"vanilla",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"galangal",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"ginger",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"kaffir lime",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"chili pepper",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"yam",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"bok choy",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"leek",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"bell pepper",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"onion",
 					[]string{"vegetable", "plant", "food"},
 				},
 			},
@@ -355,7 +611,7 @@ var (
 			Humidity:    5,
 			Resources: []Resource{
 				Resource{
-					"cheetahs",
+					"cheetah",
 					[]string{"hide"},
 				},
 				Resource{
@@ -363,11 +619,11 @@ var (
 					[]string{"metal", "precious metal"},
 				},
 				Resource{
-					"diamonds",
+					"diamond",
 					[]string{"gemstone"},
 				},
 				Resource{
-					"elephants",
+					"elephant",
 					[]string{"hide", "meat", "food", "mount", "pack animal"},
 				},
 				Resource{
@@ -383,23 +639,23 @@ var (
 					[]string{"metal", "precious metal"},
 				},
 				Resource{
-					"hippos",
-					[]string{"hide"},
+					"hippo",
+					[]string{"hide", "meat", "food"},
 				},
 				Resource{
-					"lions",
-					[]string{"hide"},
+					"lion",
+					[]string{"hide", "meat", "food"},
 				},
 				Resource{
 					"nickel",
 					[]string{"metal"},
 				},
 				Resource{
-					"rubies",
+					"ruby",
 					[]string{"gemstone"},
 				},
 				Resource{
-					"sapphires",
+					"sapphire",
 					[]string{"gemstone"},
 				},
 				Resource{
@@ -407,8 +663,16 @@ var (
 					[]string{"metal", "precious metal"},
 				},
 				Resource{
-					"zebras",
+					"zebra",
 					[]string{"hide", "mount", "pack animal", "meat", "food"},
+				},
+				Resource{
+					"salt",
+					[]string{"spice"},
+				},
+				Resource{
+					"yam",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -422,7 +686,7 @@ var (
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
-					"donkeys",
+					"donkey",
 					[]string{"hide", "meat", "food", "pack animal", "mount"},
 				},
 				Resource{
@@ -430,11 +694,11 @@ var (
 					[]string{"flowers", "decoration"},
 				},
 				Resource{
-					"horses",
+					"horse",
 					[]string{"mount", "meat", "food", "pack animal"},
 				},
 				Resource{
-					"rabbits",
+					"rabbit",
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
@@ -446,8 +710,28 @@ var (
 					[]string{"drink", "plant"},
 				},
 				Resource{
-					"wolves",
+					"wolf",
 					[]string{"hide"},
+				},
+				Resource{
+					"rosemary",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"thyme",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"potato",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"yam",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"onion",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -457,11 +741,11 @@ var (
 			Humidity:    3,
 			Resources: []Resource{
 				Resource{
-					"ermines",
+					"ermine",
 					[]string{"hide"},
 				},
 				Resource{
-					"foxes",
+					"fox",
 					[]string{"hide"},
 				},
 				Resource{
@@ -469,15 +753,19 @@ var (
 					[]string{"metal", "weapon metal", "armor metal"},
 				},
 				Resource{
-					"minks",
+					"mink",
 					[]string{"hide"},
+				},
+				Resource{
+					"mudhen",
+					[]string{"feathers", "meat", "eggs", "food"},
 				},
 				Resource{
 					"oil",
 					[]string{"oil", "fuel"},
 				},
 				Resource{
-					"rabbits",
+					"rabbit",
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
@@ -485,7 +773,7 @@ var (
 					[]string{"fish", "meat", "food"},
 				},
 				Resource{
-					"squirrels",
+					"squirrel",
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
@@ -493,8 +781,36 @@ var (
 					[]string{"fish", "meat", "food"},
 				},
 				Resource{
-					"wolves",
+					"wolf",
 					[]string{"hide"},
+				},
+				Resource{
+					"sage",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"parsley",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"black pepper",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"salt",
+					[]string{"spice"},
+				},
+				Resource{
+					"potato",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"fiddlehead",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"cabbage",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
@@ -516,7 +832,7 @@ var (
 					[]string{"metal", "precious metal"},
 				},
 				Resource{
-					"falcons",
+					"falcon",
 					[]string{"feathers", "hunting animals"},
 				},
 				Resource{
@@ -532,7 +848,7 @@ var (
 					[]string{"oil", "fuel"},
 				},
 				Resource{
-					"rabbits",
+					"rabbit",
 					[]string{"hide", "meat", "food"},
 				},
 				Resource{
@@ -542,6 +858,30 @@ var (
 				Resource{
 					"trout",
 					[]string{"fish", "meat", "food"},
+				},
+				Resource{
+					"sage",
+					[]string{"herb", "spice", "plant"},
+				},
+				Resource{
+					"salt",
+					[]string{"spice"},
+				},
+				Resource{
+					"potato",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"sweet potato",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"carrot",
+					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"yam",
+					[]string{"vegetable", "plant", "food"},
 				},
 			},
 		},
