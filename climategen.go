@@ -47,8 +47,8 @@ func getListOfNeeds(climate Climate) []Resource {
 		climateToCheck = climateData[otherClimate]
 
 		for _, resource := range climateToCheck.Resources {
-			if !isResourceInSlice(resource, resourcesOwned) {
-				if !isResourceInSlice(resource, resourcesNeeded) {
+			if !IsResourceInSlice(resource, resourcesOwned) {
+				if !IsResourceInSlice(resource, resourcesNeeded) {
 					resourcesNeeded = append(resourcesNeeded, resource)
 				}
 			}
