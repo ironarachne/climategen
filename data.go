@@ -504,6 +504,22 @@ var (
 					"black beans",
 					[]string{"vegetable", "plant", "food"},
 				},
+				Resource{
+					"goat",
+					[]string{"hide", "meat", "food"},
+				},
+				Resource{
+					"sheep",
+					[]string{"hide", "meat", "food"},
+				},
+				Resource{
+					"cougar",
+					[]string{"hide"},
+				},
+				Resource{
+					"llama",
+					[]string{"hide", "meat", "food", "wool"},
+				},
 			},
 		},
 		"rainforest": Climate{
@@ -602,6 +618,22 @@ var (
 				Resource{
 					"onion",
 					[]string{"vegetable", "plant", "food"},
+				},
+				Resource{
+					"leopard",
+					[]string{"hide"},
+				},
+				Resource{
+					"tiger",
+					[]string{"hide"},
+				},
+				Resource{
+					"snake",
+					[]string{"hide", "meat", "food"},
+				},
+				Resource{
+					"monitor lizard",
+					[]string{"hide", "meat", "food"},
 				},
 			},
 		},
@@ -741,6 +773,10 @@ var (
 			Humidity:    3,
 			Resources: []Resource{
 				Resource{
+					"bear",
+					[]string{"hide", "meat", "food"},
+				},
+				Resource{
 					"ermine",
 					[]string{"hide"},
 				},
@@ -771,6 +807,10 @@ var (
 				Resource{
 					"salmon",
 					[]string{"fish", "meat", "food"},
+				},
+				Resource{
+					"snapper",
+					[]string{"hide", "meat", "food"},
 				},
 				Resource{
 					"squirrel",
