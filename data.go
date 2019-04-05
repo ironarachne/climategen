@@ -21,6 +21,7 @@ var (
 			Name:        "coniferous forest",
 			Temperature: 4,
 			Humidity:    6,
+			Seasons:     fourSeasons,
 			Resources: []Resource{
 				Resource{
 					"bear",
@@ -100,6 +101,7 @@ var (
 			Name:        "deciduous forest",
 			Temperature: 5,
 			Humidity:    5,
+			Seasons:     fourSeasons,
 			Resources: []Resource{
 				Resource{
 					"berries",
@@ -167,6 +169,7 @@ var (
 			Name:        "desert",
 			Temperature: 9,
 			Humidity:    0,
+			Seasons:     twoSeasons,
 			Resources: []Resource{
 				Resource{
 					"camel",
@@ -222,6 +225,7 @@ var (
 			Name:        "grassland",
 			Temperature: 5,
 			Humidity:    3,
+			Seasons:     fourSeasons,
 			Resources: []Resource{
 				Resource{
 					"bison",
@@ -297,6 +301,7 @@ var (
 			Name:        "marshland",
 			Temperature: 7,
 			Humidity:    9,
+			Seasons:     twoSeasons,
 			Resources: []Resource{
 				Resource{
 					"alligator",
@@ -356,6 +361,7 @@ var (
 			Name:        "tropical",
 			Temperature: 9,
 			Humidity:    7,
+			Seasons:     twoSeasons,
 			Resources: []Resource{
 				Resource{
 					"avocado",
@@ -455,6 +461,7 @@ var (
 			Name:        "mountain",
 			Temperature: 4,
 			Humidity:    4,
+			Seasons:     fourSeasons,
 			Resources: []Resource{
 				Resource{
 					"coal",
@@ -566,6 +573,7 @@ var (
 			Name:        "rainforest",
 			Temperature: 9,
 			Humidity:    9,
+			Seasons:     twoSeasons,
 			Resources: []Resource{
 				Resource{
 					"avocado",
@@ -685,6 +693,7 @@ var (
 			Name:        "savanna",
 			Temperature: 9,
 			Humidity:    5,
+			Seasons:     twoSeasons,
 			Resources: []Resource{
 				Resource{
 					"cheetah",
@@ -764,6 +773,7 @@ var (
 			Name:        "steppe",
 			Temperature: 7,
 			Humidity:    3,
+			Seasons:     twoSeasons,
 			Resources: []Resource{
 				Resource{
 					"antelope",
@@ -831,6 +841,7 @@ var (
 			Name:        "taiga",
 			Temperature: 3,
 			Humidity:    3,
+			Seasons:     fourSeasons,
 			Resources: []Resource{
 				Resource{
 					"bear",
@@ -930,6 +941,7 @@ var (
 			Name:        "tundra",
 			Temperature: 1,
 			Humidity:    3,
+			Seasons:     twoSeasons,
 			Resources: []Resource{
 				Resource{
 					"coal",
@@ -1004,6 +1016,42 @@ var (
 					[]string{"grain", "plant", "food"},
 				},
 			},
+		},
+	}
+
+	fourSeasons = map[string]Season{
+		"spring": Season{
+			Name:              "spring",
+			HumidityChange:    0,
+			TemperatureChange: 0,
+		},
+		"summer": Season{
+			Name:              "summer",
+			HumidityChange:    1,
+			TemperatureChange: 2,
+		},
+		"autumn": Season{
+			Name:              "autumn",
+			HumidityChange:    -1,
+			TemperatureChange: -1,
+		},
+		"winter": Season{
+			Name:              "winter",
+			HumidityChange:    -2,
+			TemperatureChange: -2,
+		},
+	}
+
+	twoSeasons = map[string]Season{
+		"dry": Season{
+			Name:              "dry",
+			HumidityChange:    -1,
+			TemperatureChange: +1,
+		},
+		"wet": Season{
+			Name:              "wet",
+			HumidityChange:    +1,
+			TemperatureChange: 0,
 		},
 	}
 )
