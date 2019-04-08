@@ -6,21 +6,25 @@ import (
 
 // Animal is an animal
 type Animal struct {
-	Name         string
-	PluralName   string
-	AnimalType   string
-	EatsAnimals  bool
-	EatsPlants   bool
-	GivesBone    bool
-	GivesEggs    bool
-	GivesHide    bool
-	GivesHorn    bool
-	GivesMeat    bool
-	GivesMilk    bool
-	IsMount      bool
-	IsPackAnimal bool
-	IsScavenger  bool
-	IsVenomous   bool
+	Name           string
+	PluralName     string
+	AnimalType     string
+	EatsAnimals    bool
+	EatsPlants     bool
+	GivesBone      bool
+	GivesEggs      bool
+	GivesHide      bool
+	GivesHorn      bool
+	GivesMeat      bool
+	GivesMilk      bool
+	IsMount        bool
+	IsPackAnimal   bool
+	IsScavenger    bool
+	IsVenomous     bool
+	MinHumidity    int
+	MaxHumidity    int
+	MinTemperature int
+	MaxTemperature int
 }
 
 // Climate is a climate
@@ -49,20 +53,24 @@ type Mineral struct {
 
 // Plant is a plant
 type Plant struct {
-	Name        string
-	PluralName  string
-	HasWood     bool
-	IsFiber     bool
-	IsFruit     bool
-	IsGrain     bool
-	IsHerb      bool
-	IsMedicine  bool
-	IsNut       bool
-	IsRoot      bool
-	IsSpice     bool
-	IsToxic     bool
-	IsTree      bool
-	IsVegetable bool
+	Name           string
+	PluralName     string
+	HasWood        bool
+	IsFiber        bool
+	IsFruit        bool
+	IsGrain        bool
+	IsHerb         bool
+	IsMedicine     bool
+	IsNut          bool
+	IsRoot         bool
+	IsSpice        bool
+	IsToxic        bool
+	IsTree         bool
+	IsVegetable    bool
+	MinHumidity    int
+	MaxHumidity    int
+	MinTemperature int
+	MaxTemperature int
 }
 
 // Resource is a resource
