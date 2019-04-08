@@ -1,12 +1,57 @@
 package climategen
 
+import "math/rand"
+
+// Mineral is a mineral
+type Mineral struct {
+	Name         string
+	PluralName   string
+	Hardness     int
+	HasOre       bool
+	IsEdible     bool
+	IsGem        bool
+	IsMetal      bool
+	IsPrecious   bool
+	IsStone      bool
+	Malleability int
+}
+
+func getRandomMinerals(amount int, from []Mineral) []Mineral {
+	var minerals []Mineral
+	var mineral Mineral
+
+	if amount > len(from) {
+		amount = len(from)
+	}
+
+	for i := 0; i < amount; i++ {
+		mineral = from[rand.Intn(len(from)-1)]
+		if !isMineralInSlice(mineral, minerals) {
+			minerals = append(minerals, mineral)
+		}
+	}
+
+	return minerals
+}
+
+func isMineralInSlice(mineral Mineral, minerals []Mineral) bool {
+	isIt := false
+	for _, m := range minerals {
+		if m.Name == mineral.Name {
+			isIt = true
+		}
+	}
+
+	return isIt
+}
+
 func getAllMinerals() []Mineral {
 	var minerals []Mineral
 
 	gems := getGems()
-	metal := getMetal()
+	metal := getMetals()
 	other := getOtherMinerals()
-	stone := getStone()
+	stone := getStones()
 
 	minerals = append(minerals, gems...)
 	minerals = append(minerals, metal...)
@@ -72,7 +117,7 @@ func getGems() []Mineral {
 	return []Mineral{diamond, garnet, ruby, sapphire}
 }
 
-func getMetal() []Mineral {
+func getMetals() []Mineral {
 	copper := Mineral{
 		Name:         "copper",
 		PluralName:   "copper",
@@ -171,7 +216,7 @@ func getOtherMinerals() []Mineral {
 	return []Mineral{coal, salt}
 }
 
-func getStone() []Mineral {
+func getStones() []Mineral {
 	granite := Mineral{
 		Name:         "granite",
 		PluralName:   "granite",

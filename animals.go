@@ -1,11 +1,65 @@
 package climategen
 
+import "math/rand"
+
+// Animal is an animal
+type Animal struct {
+	Name           string
+	PluralName     string
+	AnimalType     string
+	EatsAnimals    bool
+	EatsPlants     bool
+	GivesBone      bool
+	GivesEggs      bool
+	GivesHide      bool
+	GivesHorn      bool
+	GivesMeat      bool
+	GivesMilk      bool
+	IsMount        bool
+	IsPackAnimal   bool
+	IsScavenger    bool
+	IsVenomous     bool
+	MinHumidity    int
+	MaxHumidity    int
+	MinTemperature int
+	MaxTemperature int
+}
+
 func (climate Climate) getFilteredAnimals() []Animal {
 	animals := getAllAnimals()
 	animals = filterAnimalsForHumidity(climate.Humidity, animals)
 	animals = filterAnimalsForTemperature(climate.Temperature, animals)
 
 	return animals
+}
+
+func getRandomAnimals(amount int, from []Animal) []Animal {
+	var animals []Animal
+	var animal Animal
+
+	if amount > len(from) {
+		amount = len(from)
+	}
+
+	for i := 0; i < amount; i++ {
+		animal = from[rand.Intn(len(from)-1)]
+		if !isAnimalInSlice(animal, animals) {
+			animals = append(animals, animal)
+		}
+	}
+
+	return animals
+}
+
+func isAnimalInSlice(animal Animal, animals []Animal) bool {
+	isIt := false
+	for _, a := range animals {
+		if a.Name == animal.Name {
+			isIt = true
+		}
+	}
+
+	return isIt
 }
 
 func filterAnimalsForHumidity(humidity int, animals []Animal) []Animal {
@@ -363,7 +417,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    true,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -384,7 +438,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    true,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -426,7 +480,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      true,
@@ -489,7 +543,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -510,7 +564,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -573,7 +627,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -594,7 +648,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -615,7 +669,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      true,
@@ -825,7 +879,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -846,7 +900,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -867,7 +921,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      true,
@@ -888,7 +942,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      true,
@@ -909,7 +963,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      false,
@@ -1035,7 +1089,7 @@ func getMammals() []Animal {
 			AnimalType:     "mammal",
 			EatsAnimals:    false,
 			EatsPlants:     true,
-			GivesBone:      false,
+			GivesBone:      true,
 			GivesEggs:      false,
 			GivesHide:      true,
 			GivesHorn:      true,

@@ -1,32 +1,56 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
+	"log"
 	"math/rand"
+	"net/http"
+	"time"
 
+	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/middleware"
 	"github.com/ironarachne/climategen"
-	"github.com/kataras/iris"
+	"github.com/ironarachne/random"
 )
 
+func getClimate(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var newClimate climategen.Climate
+
+	random.SeedFromString(id)
+
+	newClimate = climategen.Generate()
+
+	json.NewEncoder(w).Encode(newClimate)
+}
+
+func getClimateRandom(w http.ResponseWriter, r *http.Request) {
+	var newClimate climategen.Climate
+
+	rand.Seed(time.Now().UnixNano())
+
+	newClimate = climategen.Generate()
+
+	json.NewEncoder(w).Encode(newClimate)
+}
+
 func main() {
-	app := iris.New()
+	r := chi.NewRouter()
 
-	app.Get("/", func(ctx iris.Context) {
-		ctx.Writef("climategend")
-	})
+	r.Use(middleware.RequestID)
+	r.Use(middleware.RealIP)
+	r.Use(middleware.Logger)
+	r.Use(middleware.Recoverer)
+	r.Use(middleware.URLFormat)
+	r.Use(middleware.SetHeader("Content-Type", "application/json"))
 
-	app.Get("/{id:int64}", func(ctx iris.Context) {
-		id, err := ctx.Params().GetInt64("id")
-		if err != nil {
-			ctx.Writef("error while trying to parse id parameter")
-			ctx.StatusCode(iris.StatusBadRequest)
-			return
-		}
+	r.Use(middleware.Timeout(60 * time.Second))
 
-		rand.Seed(id)
-		climate := climategen.Generate()
+	r.Get("/", getClimateRandom)
+	r.Get("/{id}", getClimate)
 
-		ctx.JSON(climate)
-	})
-
-	app.Run(iris.Addr(":7515"))
+	fmt.Println("Climate Generator API is online.")
+	log.Fatal(http.ListenAndServe(":7515", r))
 }

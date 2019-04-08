@@ -1,11 +1,64 @@
 package climategen
 
+import "math/rand"
+
+// Plant is a plant
+type Plant struct {
+	Name           string
+	PluralName     string
+	HasWood        bool
+	IsFiber        bool
+	IsFruit        bool
+	IsGrain        bool
+	IsHerb         bool
+	IsMedicine     bool
+	IsNut          bool
+	IsRoot         bool
+	IsSpice        bool
+	IsToxic        bool
+	IsTree         bool
+	IsVegetable    bool
+	MinHumidity    int
+	MaxHumidity    int
+	MinTemperature int
+	MaxTemperature int
+}
+
 func (climate Climate) getFilteredPlants() []Plant {
 	plants := getAllPlants()
 	plants = filterPlantsForHumidity(climate.Humidity, plants)
 	plants = filterPlantsForTemperature(climate.Temperature, plants)
 
 	return plants
+}
+
+func getRandomPlants(amount int, from []Plant) []Plant {
+	var plants []Plant
+	var plant Plant
+
+	if amount > len(from) {
+		amount = len(from)
+	}
+
+	for i := 0; i < amount; i++ {
+		plant = from[rand.Intn(len(from)-1)]
+		if !isPlantInSlice(plant, plants) {
+			plants = append(plants, plant)
+		}
+	}
+
+	return plants
+}
+
+func isPlantInSlice(plant Plant, plants []Plant) bool {
+	isIt := false
+	for _, a := range plants {
+		if a.Name == plant.Name {
+			isIt = true
+		}
+	}
+
+	return isIt
 }
 
 func filterPlantsForHumidity(humidity int, plants []Plant) []Plant {
