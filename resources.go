@@ -47,7 +47,7 @@ func resourcesFromAnimal(source Animal) []Resource {
 		resources = append(resources, Resource{Name: source.Name + " horn", Origin: source.Name, Type: "horn"})
 	}
 	if source.GivesMeat {
-		resources = append(resources, Resource{Name: source.Name + " meat", Origin: source.Name, Type: "meat"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "meat"})
 	}
 	if source.GivesMilk {
 		resources = append(resources, Resource{Name: source.Name + " milk", Origin: source.Name, Type: "milk"})
@@ -84,7 +84,7 @@ func resourcesFromMineral(source Mineral) []Resource {
 		resources = append(resources, Resource{Name: source.Name + " block", Origin: source.Name, Type: "stone block"})
 	}
 	if source.IsEdible {
-		resources = append(resources, Resource{Name: "ground " + source.Name, Origin: source.Name, Type: "spice"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "spice"})
 	}
 
 	return resources
