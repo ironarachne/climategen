@@ -13,7 +13,7 @@ type Climate struct {
 	MaxPlants         int
 	MaxPreciousMetals int
 	MaxStones         int
-	Seasons           map[string]Season
+	Seasons           []Season
 	Animals           []Animal
 	CommonMetals      []Mineral
 	Gems              []Mineral

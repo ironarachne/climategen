@@ -5,39 +5,43 @@ type Season struct {
 	Name              string
 	TemperatureChange int
 	HumidityChange    int
+	WeatherProfile    WeatherProfile
 }
 
-func (climate Climate) getSeasons() map[string]Season {
-	fourSeasons := map[string]Season{
-		"spring": Season{
+func (climate Climate) getSeasons() []Season {
+	var seasons []Season
+	var newSeason Season
+
+	fourSeasons := []Season{
+		Season{
 			Name:              "spring",
 			HumidityChange:    0,
 			TemperatureChange: 0,
 		},
-		"summer": Season{
+		Season{
 			Name:              "summer",
 			HumidityChange:    1,
-			TemperatureChange: 2,
+			TemperatureChange: 3,
 		},
-		"autumn": Season{
+		Season{
 			Name:              "autumn",
 			HumidityChange:    -1,
-			TemperatureChange: -1,
+			TemperatureChange: 1,
 		},
-		"winter": Season{
+		Season{
 			Name:              "winter",
 			HumidityChange:    -2,
 			TemperatureChange: -2,
 		},
 	}
 
-	twoSeasons := map[string]Season{
-		"dry": Season{
+	twoSeasons := []Season{
+		Season{
 			Name:              "dry",
 			HumidityChange:    -1,
 			TemperatureChange: +1,
 		},
-		"wet": Season{
+		Season{
 			Name:              "wet",
 			HumidityChange:    +1,
 			TemperatureChange: 0,
@@ -45,8 +49,19 @@ func (climate Climate) getSeasons() map[string]Season {
 	}
 
 	if climate.Humidity > 5 && climate.Temperature > 6 {
-		return twoSeasons
+		for _, s := range twoSeasons {
+			newSeason = s
+			newSeason.WeatherProfile = climate.generateWeatherProfileForSeason(s)
+			seasons = append(seasons, newSeason)
+		}
+		return seasons
 	}
 
-	return fourSeasons
+	for _, s := range fourSeasons {
+		newSeason = s
+		newSeason.WeatherProfile = climate.generateWeatherProfileForSeason(s)
+		seasons = append(seasons, newSeason)
+	}
+
+	return seasons
 }
