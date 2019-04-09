@@ -7,6 +7,30 @@ type Resource struct {
 	Type   string
 }
 
+// IsTypeInResources checks to see if a given type is present in a collection of resources
+func IsTypeInResources(typeName string, resources []Resource) bool {
+	for _, i := range resources {
+		if i.Type == typeName {
+			return true
+		}
+	}
+
+	return false
+}
+
+// ListResourcesOfType returns all resources in the given collection that match the type
+func ListResourcesOfType(typeName string, resources []Resource) []Resource {
+	filteredResources := []Resource{}
+
+	for _, i := range resources {
+		if i.Type == typeName {
+			filteredResources = append(filteredResources, i)
+		}
+	}
+
+	return filteredResources
+}
+
 func resourcesFromAnimal(source Animal) []Resource {
 	resources := []Resource{}
 
