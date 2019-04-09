@@ -89,6 +89,8 @@ func filterPlantsForTemperature(temperature int, plants []Plant) []Plant {
 func getAllPlants() []Plant {
 	var plants []Plant
 
+	fibers := getFibers()
+	plants = append(plants, fibers...)
 	fruits := getFruits()
 	plants = append(plants, fruits...)
 	grains := getGrains()
@@ -101,6 +103,133 @@ func getAllPlants() []Plant {
 	plants = append(plants, vegetables...)
 
 	return plants
+}
+
+func getFibers() []Plant {
+	fibers := []Plant{
+		Plant{
+			Name:           "cotton",
+			PluralName:     "cotton",
+			HasWood:        false,
+			IsFiber:        true,
+			IsFruit:        false,
+			IsGrain:        false,
+			IsHerb:         false,
+			IsMedicine:     false,
+			IsNut:          false,
+			IsRoot:         false,
+			IsSpice:        false,
+			IsToxic:        false,
+			IsTree:         false,
+			IsVegetable:    false,
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 9,
+		},
+		Plant{
+			Name:           "flax",
+			PluralName:     "flax",
+			HasWood:        false,
+			IsFiber:        true,
+			IsFruit:        false,
+			IsGrain:        false,
+			IsHerb:         false,
+			IsMedicine:     false,
+			IsNut:          false,
+			IsRoot:         false,
+			IsSpice:        false,
+			IsToxic:        false,
+			IsTree:         false,
+			IsVegetable:    false,
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 9,
+		},
+		Plant{
+			Name:           "hemp",
+			PluralName:     "hemp",
+			HasWood:        false,
+			IsFiber:        true,
+			IsFruit:        false,
+			IsGrain:        false,
+			IsHerb:         false,
+			IsMedicine:     false,
+			IsNut:          false,
+			IsRoot:         false,
+			IsSpice:        false,
+			IsToxic:        false,
+			IsTree:         false,
+			IsVegetable:    false,
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 9,
+		},
+		Plant{
+			Name:           "coir",
+			PluralName:     "coir",
+			HasWood:        false,
+			IsFiber:        true,
+			IsFruit:        false,
+			IsGrain:        false,
+			IsHerb:         false,
+			IsMedicine:     false,
+			IsNut:          false,
+			IsRoot:         false,
+			IsSpice:        false,
+			IsToxic:        false,
+			IsTree:         false,
+			IsVegetable:    false,
+			MinHumidity:    6,
+			MaxHumidity:    10,
+			MinTemperature: 8,
+			MaxTemperature: 10,
+		},
+		Plant{
+			Name:           "papyrus",
+			PluralName:     "papyrus",
+			HasWood:        false,
+			IsFiber:        true,
+			IsFruit:        false,
+			IsGrain:        false,
+			IsHerb:         false,
+			IsMedicine:     false,
+			IsNut:          false,
+			IsRoot:         false,
+			IsSpice:        false,
+			IsToxic:        false,
+			IsTree:         false,
+			IsVegetable:    false,
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 9,
+		},
+		Plant{
+			Name:           "jute",
+			PluralName:     "jute",
+			HasWood:        false,
+			IsFiber:        true,
+			IsFruit:        false,
+			IsGrain:        false,
+			IsHerb:         false,
+			IsMedicine:     false,
+			IsNut:          false,
+			IsRoot:         false,
+			IsSpice:        false,
+			IsToxic:        false,
+			IsTree:         false,
+			IsVegetable:    false,
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 9,
+		},
+	}
+
+	return fibers
 }
 
 func getFruits() []Plant {
