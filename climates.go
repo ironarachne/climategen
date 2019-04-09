@@ -13,6 +13,7 @@ type Climate struct {
 	MaxPlants         int
 	MaxPreciousMetals int
 	MaxStones         int
+	Resources         []Resource
 	Seasons           []Season
 	Animals           []Animal
 	CommonMetals      []Mineral
@@ -66,6 +67,32 @@ func (climate Climate) populate() Climate {
 	climate.Plants = getRandomPlants(climate.MaxPlants, plants)
 	climate.PreciousMetals = getRandomMinerals(climate.MaxPreciousMetals, preciousMetals)
 	climate.Stones = getRandomMinerals(climate.MaxStones, stones)
+
+	resources := []Resource{}
+
+	for _, i := range climate.Animals {
+		resources = append(resources, resourcesFromAnimal(i)...)
+	}
+	for _, i := range climate.CommonMetals {
+		resources = append(resources, resourcesFromMineral(i)...)
+	}
+	for _, i := range climate.PreciousMetals {
+		resources = append(resources, resourcesFromMineral(i)...)
+	}
+	for _, i := range climate.Gems {
+		resources = append(resources, resourcesFromMineral(i)...)
+	}
+	for _, i := range climate.Stones {
+		resources = append(resources, resourcesFromMineral(i)...)
+	}
+	for _, i := range climate.OtherMinerals {
+		resources = append(resources, resourcesFromMineral(i)...)
+	}
+	for _, i := range climate.Plants {
+		resources = append(resources, resourcesFromPlant(i)...)
+	}
+
+	climate.Resources = resources
 
 	return climate
 }
