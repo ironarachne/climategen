@@ -15,11 +15,12 @@ type Climate struct {
 	MaxStones         int
 	Seasons           map[string]Season
 	Animals           []Animal
-	Plants            []Plant
-	Stones            []Mineral
-	Gems              []Mineral
 	CommonMetals      []Mineral
+	Gems              []Mineral
+	OtherMinerals     []Mineral
+	Plants            []Plant
 	PreciousMetals    []Mineral
+	Stones            []Mineral
 }
 
 func getClimateByName(name string) Climate {
@@ -61,6 +62,7 @@ func (climate Climate) populate() Climate {
 	climate.Animals = getRandomAnimals(climate.MaxAnimals, animals)
 	climate.CommonMetals = getRandomMinerals(climate.MaxCommonMetals, commonMetals)
 	climate.Gems = getRandomMinerals(climate.MaxGems, gems)
+	climate.OtherMinerals = getOtherMinerals()
 	climate.Plants = getRandomPlants(climate.MaxPlants, plants)
 	climate.PreciousMetals = getRandomMinerals(climate.MaxPreciousMetals, preciousMetals)
 	climate.Stones = getRandomMinerals(climate.MaxStones, stones)

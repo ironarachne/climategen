@@ -17,8 +17,9 @@ type Mineral struct {
 }
 
 func getRandomMinerals(amount int, from []Mineral) []Mineral {
-	var minerals []Mineral
 	var mineral Mineral
+
+	minerals := []Mineral{}
 
 	if amount > len(from) {
 		amount = len(from)

@@ -33,8 +33,9 @@ func (climate Climate) getFilteredPlants() []Plant {
 }
 
 func getRandomPlants(amount int, from []Plant) []Plant {
-	var plants []Plant
 	var plant Plant
+
+	plants := []Plant{}
 
 	if amount > len(from) {
 		amount = len(from)
