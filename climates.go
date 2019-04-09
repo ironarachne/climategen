@@ -4,15 +4,16 @@ import "math/rand"
 
 // Climate is a climate
 type Climate struct {
-	Name        string
-	Temperature int
-	Humidity    int
-	Seasons     map[string]Season
-	Animals     []Animal
-	Plants      []Plant
-	Stones      []Mineral
-	Gems        []Mineral
-	Metals      []Mineral
+	Name           string
+	Temperature    int
+	Humidity       int
+	Seasons        map[string]Season
+	Animals        []Animal
+	Plants         []Plant
+	Stones         []Mineral
+	Gems           []Mineral
+	CommonMetals   []Mineral
+	PreciousMetals []Mineral
 }
 
 func getClimateByName(name string) Climate {
@@ -44,7 +45,8 @@ func (climate Climate) getCurrentTemperature(season Season) int {
 func (climate Climate) populate() Climate {
 	animals := climate.getFilteredAnimals()
 	gems := getGems()
-	metals := getMetals()
+	commonMetals := getCommonMetals()
+	preciousMetals := getPreciousMetals()
 	plants := climate.getFilteredPlants()
 	stones := getStones()
 
@@ -52,7 +54,8 @@ func (climate Climate) populate() Climate {
 
 	climate.Animals = getRandomAnimals(10, animals)
 	climate.Gems = getRandomMinerals(3, gems)
-	climate.Metals = getRandomMinerals(3, metals)
+	climate.CommonMetals = getRandomMinerals(2, commonMetals)
+	climate.PreciousMetals = getRandomMinerals(3, preciousMetals)
 	climate.Plants = getRandomPlants(12, plants)
 	climate.Stones = getRandomMinerals(3, stones)
 

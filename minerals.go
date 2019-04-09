@@ -61,6 +61,34 @@ func getAllMinerals() []Mineral {
 	return minerals
 }
 
+func getCommonMetals() []Mineral {
+	var commonMetals []Mineral
+
+	metals := getMetals()
+
+	for _, m := range metals {
+		if !m.IsPrecious {
+			commonMetals = append(commonMetals, m)
+		}
+	}
+
+	return commonMetals
+}
+
+func getPreciousMetals() []Mineral {
+	var preciousMetals []Mineral
+
+	metals := getMetals()
+
+	for _, m := range metals {
+		if m.IsPrecious {
+			preciousMetals = append(preciousMetals, m)
+		}
+	}
+
+	return preciousMetals
+}
+
 func getGems() []Mineral {
 	gems := []Mineral{
 		Mineral{
@@ -133,7 +161,7 @@ func getMetals() []Mineral {
 		Mineral{
 			Name:         "gold",
 			PluralName:   "gold",
-			Hardness:     1,
+			Hardness:     2,
 			HasOre:       true,
 			IsEdible:     true,
 			IsGem:        false,
@@ -155,6 +183,30 @@ func getMetals() []Mineral {
 			Malleability: 4,
 		},
 		Mineral{
+			Name:         "tin",
+			PluralName:   "tin",
+			Hardness:     3,
+			HasOre:       true,
+			IsEdible:     false,
+			IsGem:        false,
+			IsMetal:      true,
+			IsPrecious:   false,
+			IsStone:      false,
+			Malleability: 8,
+		},
+		Mineral{
+			Name:         "lead",
+			PluralName:   "lead",
+			Hardness:     1,
+			HasOre:       true,
+			IsEdible:     false,
+			IsGem:        false,
+			IsMetal:      true,
+			IsPrecious:   false,
+			IsStone:      false,
+			Malleability: 9,
+		},
+		Mineral{
 			Name:         "nickel",
 			PluralName:   "nickel",
 			Hardness:     3,
@@ -169,7 +221,7 @@ func getMetals() []Mineral {
 		Mineral{
 			Name:         "silver",
 			PluralName:   "silver",
-			Hardness:     1,
+			Hardness:     2,
 			HasOre:       true,
 			IsEdible:     false,
 			IsGem:        false,
