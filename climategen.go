@@ -31,6 +31,7 @@ func GetForeignClimate(climate Climate) Climate {
 	}
 
 	foreignClimate := possibleClimates[rand.Intn(len(possibleClimates)-1)]
+	foreignClimate = foreignClimate.populate()
 
 	return foreignClimate
 }
