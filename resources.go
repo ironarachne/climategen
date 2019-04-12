@@ -65,6 +65,14 @@ func resourcesFromAnimal(source Animal) []Resource {
 	return resources
 }
 
+func resourcesFromFish(source Fish) []Resource {
+	resources := []Resource{}
+
+	resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "meat"})
+
+	return resources
+}
+
 func resourcesFromMineral(source Mineral) []Resource {
 	resources := []Resource{}
 

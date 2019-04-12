@@ -7,6 +7,10 @@ type Climate struct {
 	Name              string
 	Temperature       int
 	Humidity          int
+	HasWetlands       bool
+	HasRivers         bool
+	HasLakes          bool
+	HasOcean          bool
 	MaxAnimals        int
 	MaxCommonMetals   int
 	MaxGems           int
@@ -16,6 +20,7 @@ type Climate struct {
 	Resources         []Resource
 	Seasons           []Season
 	Animals           []Animal
+	Fish              []Fish
 	CommonMetals      []Mineral
 	Gems              []Mineral
 	OtherMinerals     []Mineral
@@ -51,6 +56,8 @@ func (climate Climate) getCurrentTemperature(season Season) int {
 }
 
 func (climate Climate) populate() Climate {
+	resources := []Resource{}
+
 	animals := climate.getFilteredAnimals()
 	commonMetals := getCommonMetals()
 	gems := getGems()
@@ -60,6 +67,33 @@ func (climate Climate) populate() Climate {
 
 	climate.Seasons = climate.getSeasons()
 
+	lakeChance := rand.Intn(10)
+	riverChance := rand.Intn(10)
+	oceanChance := rand.Intn(10)
+	wetlandsChance := rand.Intn(10)
+
+	if lakeChance > 6 {
+		climate.HasLakes = true
+	}
+	if riverChance > 3 {
+		climate.HasRivers = true
+	}
+	if oceanChance > 8 {
+		climate.HasOcean = true
+	}
+	if wetlandsChance > 8 {
+		climate.HasWetlands = true
+	}
+
+	if climate.HasLakes || climate.HasRivers || climate.HasOcean {
+		climate.Fish = climate.getRandomFish()
+		for _, i := range climate.Fish {
+			resources = append(resources, resourcesFromFish(i)...)
+		}
+	} else {
+		climate.Fish = []Fish{}
+	}
+
 	climate.Animals = getRandomAnimals(climate.MaxAnimals, animals)
 	climate.CommonMetals = getRandomMinerals(climate.MaxCommonMetals, commonMetals)
 	climate.Gems = getRandomMinerals(climate.MaxGems, gems)
@@ -67,8 +101,6 @@ func (climate Climate) populate() Climate {
 	climate.Plants = getRandomPlants(climate.MaxPlants, plants)
 	climate.PreciousMetals = getRandomMinerals(climate.MaxPreciousMetals, preciousMetals)
 	climate.Stones = getRandomMinerals(climate.MaxStones, stones)
-
-	resources := []Resource{}
 
 	for _, i := range climate.Animals {
 		resources = append(resources, resourcesFromAnimal(i)...)
@@ -147,6 +179,7 @@ func getAllClimates() []Climate {
 			Name:              "marshland",
 			Temperature:       7,
 			Humidity:          9,
+			HasWetlands:       true,
 			MaxAnimals:        15,
 			MaxCommonMetals:   1,
 			MaxGems:           1,
