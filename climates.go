@@ -1,10 +1,15 @@
 package climategen
 
-import "math/rand"
+import (
+	"math/rand"
+
+	"github.com/ironarachne/random"
+)
 
 // Climate is a climate
 type Climate struct {
 	Name              string
+	Description       string
 	Temperature       int
 	Humidity          int
 	HasWetlands       bool
@@ -45,6 +50,88 @@ func getRandomClimate() Climate {
 	climates := getAllClimates()
 
 	return climates[rand.Intn(len(climates)-1)]
+}
+
+func (climate Climate) getDescription() string {
+	description := "This is "
+
+	firstLetter := string(climate.Name[0])
+
+	if inSlice(firstLetter, []string{"a", "e", "i", "o", "u"}) {
+		description += "an "
+	} else {
+		description += "a "
+	}
+	description += climate.Name + " region"
+
+	waterComponents := []string{}
+	if climate.HasLakes {
+		lakes := []string{"many smaller lakes", "a few large lakes", "an enormous lake"}
+		waterComponents = append(waterComponents, random.Item(lakes))
+	}
+	if climate.HasRivers {
+		rivers := []string{"a few rivers", "a major river", "many small rivers and streams"}
+		waterComponents = append(waterComponents, random.Item(rivers))
+	}
+	if climate.HasWetlands {
+		wetlands := []string{"several bogs", "extensive wetlands", "scattered wetlands"}
+		waterComponents = append(waterComponents, random.Item(wetlands))
+	}
+	waterComponents = shuffle(waterComponents)
+
+	if len(waterComponents) > 0 {
+		description += " with "
+		description += combinePhrases(waterComponents)
+	}
+
+	if climate.HasOcean {
+		description += ". It lies on the coast of "
+		oceanTypes := []string{"a large ocean", "a gulf", "a major sea", "a smaller sea", "an ocean"}
+		description += random.Item(oceanTypes)
+
+		beachTypes := []string{"white sandy beaches", "long sandy beaches", "rocky beaches", "sheer cliffs", "low cliffs", "sandy beaches", "beautiful sandy beaches"}
+		description += " with " + random.Item(beachTypes)
+	}
+
+	weather := ". The weather is "
+	weatherItem := ""
+	weatherItems := []string{}
+
+	for _, s := range climate.Seasons {
+		weatherItem = s.WeatherProfile.Description + " during the " + s.Name
+		if len(climate.Seasons) == 2 {
+			weatherItem += " season"
+		}
+		weatherItems = append(weatherItems, weatherItem)
+	}
+	weather += combinePhrases(weatherItems)
+
+	description += weather + "."
+
+	predatorCount := 0
+	birdCount := 0
+
+	for _, a := range climate.Animals {
+		if a.EatsAnimals {
+			predatorCount++
+		}
+		if a.AnimalType == "bird" {
+			birdCount++
+		}
+	}
+
+	manyBirds := rand.Intn(10)
+	manyPredators := rand.Intn(10)
+
+	if predatorCount > 1 && manyPredators > 8 {
+		description += " There are a number of predators in the region."
+	}
+
+	if birdCount > 1 && manyBirds > 8 {
+		description += " The skies are full of birds."
+	}
+
+	return description
 }
 
 func (climate Climate) getCurrentHumidity(season Season) int {
@@ -125,6 +212,7 @@ func (climate Climate) populate() Climate {
 	}
 
 	climate.Resources = resources
+	climate.Description = climate.getDescription()
 
 	return climate
 }
