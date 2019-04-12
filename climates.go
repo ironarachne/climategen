@@ -10,6 +10,7 @@ import (
 type Climate struct {
 	Name              string
 	Description       string
+	Habitability      int
 	Temperature       int
 	Humidity          int
 	HasWetlands       bool
@@ -32,6 +33,56 @@ type Climate struct {
 	Plants            []Plant
 	PreciousMetals    []Mineral
 	Stones            []Mineral
+}
+
+func (climate Climate) calculateHabitability() int {
+	habitability := 100
+
+	if climate.Temperature > 9 || climate.Temperature < 4 {
+		habitability -= 40
+	}
+
+	if climate.Humidity < 2 || climate.Humidity > 9 {
+		habitability -= 10
+	}
+
+	if len(climate.Animals) < 4 {
+		habitability -= 10
+	}
+
+	if len(climate.Plants) < 4 {
+		habitability -= 10
+	}
+
+	totalWeatherScore := 0
+
+	for _, s := range climate.Seasons {
+		if s.WeatherProfile.WindLevel > 5 {
+			totalWeatherScore += 5
+		}
+		if s.WeatherProfile.PrecipitationAmount < 3 || s.WeatherProfile.PrecipitationAmount > 9 {
+			totalWeatherScore += 5
+		}
+	}
+
+	habitability -= totalWeatherScore
+
+	habitability += len(climate.Seasons) * 2
+
+	if climate.HasLakes {
+		habitability += 5
+	}
+	if climate.HasRivers {
+		habitability += 5
+	}
+	if climate.HasOcean {
+		habitability += 5
+	}
+	if climate.HasWetlands {
+		habitability -= 10
+	}
+
+	return habitability
 }
 
 func getClimateByName(name string) Climate {
@@ -213,6 +264,8 @@ func (climate Climate) populate() Climate {
 
 	climate.Resources = resources
 	climate.Description = climate.getDescription()
+
+	climate.Habitability = climate.calculateHabitability()
 
 	return climate
 }
